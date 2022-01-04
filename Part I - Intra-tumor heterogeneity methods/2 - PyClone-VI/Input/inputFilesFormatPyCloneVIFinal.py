@@ -142,11 +142,11 @@ def loadSNVs(filename, sampleID):
     genomeInfo = genomeInfo[(genomeInfo['FILTER'] == 'PASS') & (genomeInfo['CHROM'] != 'chrX')]
   
     
-    # PyClone-VI input columns major_cn, minor_cn, normal_cn and tumor_content (cellular fraction) default values
-    genomeInfo['normal_cn'], genomeInfo['major_cn'], genomeInfo['minor_cn'], genomeInfo['tumor_content'] = [2, 1, 1, 1.0]
+    # PyClone-VI input columns major_cn, minor_cn, normal_cn and tumour_content (cellular fraction) default values
+    genomeInfo['normal_cn'], genomeInfo['major_cn'], genomeInfo['minor_cn'], genomeInfo['tumour_content'] = [2, 1, 1, 1.0]
     
     # change data type to reduce memory usage
-    genomeInfo = genomeInfo.astype ({'normal_cn' : 'uint8', 'major_cn' : 'uint8', 'minor_cn' : 'uint8', 'tumor_content' : 'float16'})        
+    genomeInfo = genomeInfo.astype ({'normal_cn' : 'uint8', 'major_cn' : 'uint8', 'minor_cn' : 'uint8', 'tumour_content' : 'float16'})        
           
 
     # Get the reference and alternative alleles read counts
@@ -206,7 +206,7 @@ def intersectSNVsCNAs(sampleSNVsInfo, sampleCNAsInfo):
 
 
     # drops CHROM, POS, START_POS, END_POS, MAJOR_COPY and MINOR_COPY columns, and order the remaining columns according to the PyClone-VI input files format
-    snvsIntersectedByCNAs = snvsIntersectedByCNAs[['mutation_id', 'sample_id', 'ref_counts', 'alt_counts', 'normal_cn', 'major_cn', 'minor_cn', 'tumor_content']]
+    snvsIntersectedByCNAs = snvsIntersectedByCNAs[['mutation_id', 'sample_id', 'ref_counts', 'alt_counts', 'normal_cn', 'major_cn', 'minor_cn', 'tumour_content']]
 
 
     # reset indexes to start on 0 and increment by 1
@@ -235,11 +235,11 @@ def getSNVsToInsertSamples(mouseSample, allSNVsIdentifiers):
 
     
     allSamplesSNVs['sample_id'], allSamplesSNVs['ref_counts'], allSamplesSNVs['alt_counts'], \
-        allSamplesSNVs['normal_cn'], allSamplesSNVs['major_cn'], allSamplesSNVs['minor_cn'], allSamplesSNVs['tumor_content'] = \
+        allSamplesSNVs['normal_cn'], allSamplesSNVs['major_cn'], allSamplesSNVs['minor_cn'], allSamplesSNVs['tumour_content'] = \
             [mouseSample['sample_id'].cat.categories[0], 0, 0, 2, 1, 1, 1.0]
             
     allSamplesSNVs = allSamplesSNVs.astype ({'mutation_id' : str, 'sample_id' : 'category', 'ref_counts' : 'uint16', 'alt_counts' : 'uint16', \
-                                             'normal_cn' : 'uint8', 'major_cn' : 'uint8', 'minor_cn' : 'uint8', 'tumor_content' : 'float16'})        
+                                             'normal_cn' : 'uint8', 'major_cn' : 'uint8', 'minor_cn' : 'uint8', 'tumour_content' : 'float16'})        
             
 
     return allSamplesSNVs
@@ -275,7 +275,7 @@ def putSNVsAllSamples(miceSetSamples, snvsToPutInAllSamples):
 
     # change data type to reduce memory usage
     miceSetWithAllSNVs = miceSetWithAllSNVs.astype ({'mutation_id' : str, 'sample_id' : 'category', 'ref_counts' : 'uint16', 'alt_counts' : 'uint16', \
-                                                     'normal_cn' : 'uint8', 'major_cn' : 'uint8', 'minor_cn' : 'uint8', 'tumor_content' : 'float16'})        
+                                                     'normal_cn' : 'uint8', 'major_cn' : 'uint8', 'minor_cn' : 'uint8', 'tumour_content' : 'float16'})        
              
 
     # reset indexes to start on 0 and increment by 1
