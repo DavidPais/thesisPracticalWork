@@ -708,7 +708,7 @@ def plotHeterogeneityIndex():
             mp.set_sizes([42,42,42,42])
         
     
-    groupLegend = plt.gca().legend(bbox_to_anchor=(1.03, 0.5), loc='center left', borderaxespad=1.0, fontsize = 13, labels = ['Control', 'Sunitinib'], title = "Group",
+    groupLegend = plt.gca().legend(bbox_to_anchor=(1.03, 0.5), loc='center left', borderaxespad=1.0, fontsize = 13, labels = ['Control', 'Sunitinib'], title = r'$\bf{Group}$',
                                    title_fontsize = 14, shadow = True, facecolor = 'white', borderpad = 0.7, labelspacing = 0.6, handletextpad = 0.2)    
     
     
