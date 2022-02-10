@@ -1,0 +1,79 @@
+Part I - Intra-tumor heterogeneity methods [READ ME]:
+
+This folder contains the pratical work regarding the first part of the student's dissertation work.
+It is divided according to the three applied computational methods for the heterogeneity estimation of the mice case study data,
+comparing the control and sunitinib treated groups:
+
+
+1 - Heterogeneity Index
+
+[file] heterogeneityIndexFinal.py: python file code with the total coverage and variant allele frequency distribution analyses of the 
+mice data, as well as the use of the tumor heterogeneity index (Shannon's index) to estimate the heterogeneity.
+
+[folder] heterogeneityIndexImagesFinal: output plots of the file heterogeneityIndexFinal.py generated from the data analyses 
+(genome sequencing data reads total coverage distribution and variant allele frequency distribution, per sample and considering all samples),
+and the comparison of the mice tumor heterogeneity index with three different execution settings: - not considering copy number alterations (CNAs),
+using only single nucleotide variants (SNVs); - using only SNVs in regions with normal total copy number, including the CNAs with major copy number = 2 and 
+minor copy number = 0 in the intersection with the SNVs; - using only SNVs in regions with total normal copy number and considering the CNAs with 
+major copy number = 2 and minor copy number = 0 as being detection anomalies, not including them in the intersection with the SNVs.
+
+
+2 - PyClone-VI
+
+[folder] Input: Formatting the input files for the PyClone-VI algorithm with the stucture referred in https://github.com/Roth-Lab/pyclone-vi.
+
+	[file] inputFilesFormatPyCloneViFinal.py: python file code that generates the input files with the format necessary for the PyClone-VI algorithm, using 
+	       all mice samples together, and each mouse samples separately, with two settings: - including the CNAs with major copy number = 2 and 
+	       minor copy number = 0 in the intersection with the SNVs; - considering the CNAs with major copy number = 2 and minor copy number = 0 
+	       as being detection anomalies, not including them in the intersection with the SNVs.
+
+[folder] Output: Contains the PyClone-VI algorithm output files and the plots generated from their analyses.
+
+	[file] outputFilesPyCloneViAnalysisFinal.py: python file code that outputs the plots of the PyClone-VI algorithm execution results in the outputPyCloneViAnalysisImagesFinal folder, which content description follows.
+
+	[folder] outputPyCloneViAnalysisImagesFinal: contains two folders, one with plots using the PyClone-VI's execution files output with all mice samples together ([folder] allMice),
+		 and the other with the separate output files of each mouse ([folder] differentMice). Inside these there are different folders, considering the CNAs with major copy number = 2 and minor copy number = 0,
+		 and not including these ([folder] withoutCNAsErrors). 
+	
+		 For all mice samples used together there are 3 folders:
+			
+			[folder] 1 - clustersCCFsDistribution: for each of the algorithm executions, based on the different combinations of number of clusters and random restarts, 
+			the distribution of the cellular prevalence of the mutations inside each cluster, comparing the control and treated groups. 
+
+			[folder] 2 - clusterCCFsMean: for each of the algorithm executions, based on the different combinations of number of clusters and random restarts, the mean cellular prevalences 
+			of the mice mutations are compared. 
+			
+			[folder] 3 - clustersSampleHI: applying the tumor heterogeneity index for each sample based on its clusters' CCF, comparing each group 
+			mean tumor heterogeneity index and its variation in all executions (including the p-values of the Wilcoxon rank-sum test and also the analysis of the normality of the 
+			data distribution, histogram with KDE and Quantile-Quantile plots, for all mice together).
+
+		 For each of the mice execution files run separately there are 2 folders: 
+
+			[folder] 1 - numClusters: for each of the execution settings it compares the number of clusters obtained by the different mice, in particular, 
+			between the control and treated groups, where a higher number of clusters relates to a higher number of clones, which implies a higher tumor intra-heterogeneity. 
+
+			[folder] 2 - clustersSampleHI: applying the tumor heterogeneity index for each sample based on its clusters' CCF, comparing each group 
+			mean tumor heterogeneity index and its variation in all executions. 
+
+
+3 - Canopy
+
+[folder] Input: contains the code that builds all the matrices needed for the Canopy algorithm, including the alternative allele read counts and the total depth of each mutation;
+its region minor and major copy number; error values for the minor and major copy numbers; the CNAs that overlap each other; which SNVs are intersected by which CNAs.
+
+	 [file] canopyInputFormatFinal.R: R file code responsible to create each of the matrices needed for Canopy's algorithm to be run. In Canopy the CNAs with major copy number = 2 and 
+	 minor copy number = 0 were considered as detection anomalies, and so were excluded from the set of CNAs that was used to build the matrices.
+
+[folder] Output: has the code that runs the Canopy commands responsible for the output of a plot that results in the application of the bayesian information criteria (BIC) to select the
+most appropriate number of clones for the corresponding input matrices. Also generates a pdf with the tree configuration and clonal frequency matrix of the tree with the 
+highest likelihood.
+
+	 [file] canopyOutputFinal.R: responsible for the output of a pdf with the tree configuration and its corresponding clonal frequency matrix with the highest likelihood. Based on that
+	 matrix it also applies the heterogeneity index for each sample based on its clones frequencies values, with plots comparing both the control and sunitinib treated groups using all mice	
+	 samples together, or each of the mice samples separately.
+
+	 [folder] 1 - canopyOutputLikelihoodFinal: Each of the canopy executions output a pdf with two plots for each corresponding number of clones tested: the left one to assess the convergence
+	 of algorithm's MCMC chains, the right one representing the acceptance rate, of how each sample was not influenced by the previous. 
+
+	 [folder] 2 - canopyOutputImagesFinal: The edited pdfs outputs with the tree configurations without the mutational populations' constitution cut and with all samples included in the plot when using all mice together. 
+	 It also has the plots with the heterogeneity index comparison between mice.

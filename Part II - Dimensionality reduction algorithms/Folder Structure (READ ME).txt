@@ -1,0 +1,32 @@
+Part II - Dimensionality reduction algorithms [READ ME]:
+
+This folder contains the pratical work regarding the second part of the student's dissertation work, applying dimensionality reduction methods.
+
+It contains the processing of the mice and TCGA data input, the tables that will be input to the script where it will be run the dimensionlity reduction algorithms,
+the file with the the methods applied, and 3 folders with the output corresponding to the application of the methods:
+
+
+[folder] Input: The processing of the input dataframes needed to apply the dimensionality reduction methods using both the mice case study and the TCGA patients data.
+
+	[file] processInputCancerAnalysesFinalML: Receiving as input both the mice case study and the TCGA patients data, it processes the different input types 
+	and finds the genes that are common to both the mice and the TCGA data. 
+
+[folder] Output: Dimensionality reduction methods output code and plots.
+
+	[file] cancerAnalysesFinalML.py: Different dimensionality reduction techniques are applied to the data to further explore if the mice data are different
+	from each other considering other features, in this case, the genes affected by SNVs and CNAs.
+
+	[folder] 1 - miceSamplesPlotsOutput: Resulting plots of applying the dimensionality reduction algorithms to the mice case study data only.
+
+	[folder] 2 - patientsTCGAPlotsOutput: Resulting plots of applying the dimensionality reduction algorithms to the TCGA patients data only.
+
+	[folder] 3 - micePatientsTCGASamplesPlotsOutput: Resulting plots of applying the dimensionality reduction algorithms to both
+	the mice case study and TCGA patients data together.
+
+
+
+
+
+
+
+
