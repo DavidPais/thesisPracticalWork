@@ -8,7 +8,7 @@ the file with the the methods applied, and 3 folders with the output correspondi
 
 [folder] Input: The processing of the input dataframes needed to apply the dimensionality reduction methods using both the mice case study and the TCGA patients data.
 
-	[file] processInputCancerAnalysesFinalML: Receiving as input both the mice case study and the TCGA patients data, it processes the different input types 
+	[file] processInputCancerAnalysesFinalML.py: Receiving as input both the mice case study and the TCGA patients data, it processes the different input types 
 	and finds the genes that are common to both the mice and the TCGA data. 
 
 [folder] Output: Dimensionality reduction methods output code and plots.
