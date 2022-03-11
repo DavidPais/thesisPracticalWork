@@ -58,7 +58,7 @@ import csv
 # returns: The genes on the X and Y chromosomes and the genes information table
 def loadGenesInfo(filename):
     genesInfo = pd.read_csv(filename, delimiter='\t', # chromosome is category when loading because of the X and Y chromosomes
-        dtype = {'CHROM': 'category', 'START_POS': 'uint32', 'END_POS': 'uint32', 'GENE_ID': str, 'GENE_NAME': str},
+        dtype = {'CHROM': str, 'START_POS': 'uint32', 'END_POS': 'uint32', 'GENE_ID': str, 'GENE_NAME': str},
             names = ['CHROM', 'START_POS', 'END_POS', 'GENE_ID', 'GENE_NAME'], header = 0) # using all columns
            
 
