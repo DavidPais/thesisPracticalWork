@@ -1176,14 +1176,17 @@ def patientsPcaDensity2D(patientsPCA):
   ax.tick_params(labelsize = 14)
 
 
-  legend_handles, _= g.get_legend_handles_labels()      
+  g.get_legend().remove()
 
-  density_legend = plt.gca().legend(bbox_to_anchor=(1.020, 0.5), loc='center left', borderaxespad=1.0, fontsize = 14.5, handles = legend_handles,  \
-      labels = ['Low', 'High'], title = r"$\bf{Density}$", title_fontsize = 15, shadow = True, \
-          facecolor = 'white', borderpad = 0.7, labelspacing = 0.85, handletextpad = 0.05)    
-                  
-  # setting legend marker size
-  list(map(lambda legendHandle: legendHandle.set_sizes([55.0]), density_legend.legendHandles))
+  sm = plt.cm.ScalarMappable(cmap="magma")
+  sm.set_array([])
+
+  cbar = g.figure.colorbar(sm, ticks = [0, 1])
+  
+  cbar.set_ticklabels(["Low", "High"])
+
+  cbar.set_label(label='Density', size=14, weight='bold', rotation = 360, labelpad = -1, y = 0.5)
+  cbar.ax.tick_params(labelsize=13.5)
 
 
   figure_name = "Patients TCGA applying PCA with 2 principal components - density zones"
@@ -1433,15 +1436,18 @@ def patientsTruncatedSvdDensity2D(patientsSVD):
   ax.tick_params(labelsize = 14.4)
 
 
-  legend_handles, _= g.get_legend_handles_labels()      
+  g.get_legend().remove()
 
-  density_legend = plt.gca().legend(bbox_to_anchor=(1.020, 0.5), loc='center left', borderaxespad=1.0, fontsize = 14.5, handles = legend_handles,  \
-      labels = ['Low', 'High'], title = r"$\bf{Density}$", title_fontsize = 15, shadow = True, \
-          facecolor = 'white', borderpad = 0.7, labelspacing = 0.85, handletextpad = 0.05)    
-                  
-  # setting legend marker size
-  list(map(lambda legendHandle: legendHandle.set_sizes([55.0]), density_legend.legendHandles))
+  sm = plt.cm.ScalarMappable(cmap="magma")
+  sm.set_array([])
 
+  cbar = g.figure.colorbar(sm, ticks = [0, 1])
+  
+  cbar.set_ticklabels(["Low", "High"])
+
+  cbar.set_label(label='Density', size=14, weight='bold', rotation = 360, labelpad = -1, y = 0.5)
+  cbar.ax.tick_params(labelsize=13.5)
+  
 
   figure_name = "Patients TCGA applying truncated SVD with 2 principal components - density zones"
 
@@ -1694,15 +1700,18 @@ def patientsPca25TsneDensity2D(patientsTSNE):
   # default of axis is both
   ax.tick_params(labelsize = 14.3)
 
+  
+  g.get_legend().remove()
 
-  legend_handles, _= g.get_legend_handles_labels()      
+  sm = plt.cm.ScalarMappable(cmap="magma")
+  sm.set_array([])
 
-  density_legend = plt.gca().legend(bbox_to_anchor=(1.020, 0.5), loc='center left', borderaxespad=1.0, fontsize = 14.5, handles = legend_handles,  \
-      labels = ['Low', 'High'], title = r"$\bf{Density}$", title_fontsize = 15, shadow = True, \
-          facecolor = 'white', borderpad = 0.7, labelspacing = 0.85, handletextpad = 0.05)    
-                  
-  # setting legend marker size
-  list(map(lambda legendHandle: legendHandle.set_sizes([55.0]), density_legend.legendHandles))
+  cbar = g.figure.colorbar(sm, ticks = [0, 1])
+  
+  cbar.set_ticklabels(["Low", "High"])
+
+  cbar.set_label(label='Density', size=14, weight='bold', rotation = 360, labelpad = -1, y = 0.5)
+  cbar.ax.tick_params(labelsize=13.5)
 
 
   figure_name = "Patients TCGA applying PCA first to 25 components followed by TSNE with 2 dimensions - density zones"
@@ -1964,15 +1973,18 @@ def patientsPca25MdsDensity2D(patientsMDS):
   # default of axis is both
   ax.tick_params(labelsize = 14.3)
 
+  
+  g.get_legend().remove()
 
-  legend_handles, _= g.get_legend_handles_labels()      
+  sm = plt.cm.ScalarMappable(cmap="magma")
+  sm.set_array([])
 
-  density_legend = plt.gca().legend(bbox_to_anchor=(1.020, 0.5), loc='center left', borderaxespad=1.0, fontsize = 14.5, handles = legend_handles,  \
-      labels = ['Low', 'High'], title = r"$\bf{Density}$", title_fontsize = 15, shadow = True, \
-          facecolor = 'white', borderpad = 0.7, labelspacing = 0.85, handletextpad = 0.05)    
-                  
-  # setting legend marker size
-  list(map(lambda legendHandle: legendHandle.set_sizes([55.0]), density_legend.legendHandles))
+  cbar = g.figure.colorbar(sm, ticks = [0, 1])
+  
+  cbar.set_ticklabels(["Low", "High"])
+
+  cbar.set_label(label='Density', size=14, weight='bold', rotation = 360, labelpad = -1, y = 0.5)
+  cbar.ax.tick_params(labelsize=13.5)
 
 
   figure_name = "Patients TCGA applying PCA first to 25 components followed by MDS with 2 dimensions - density zones"
@@ -2231,15 +2243,18 @@ def patientsPca25IsomapDensity2D(patientsIsomap):
   # default of axis is both
   ax.tick_params(labelsize = 14.3)
 
+  
+  g.get_legend().remove()
 
-  legend_handles, _= g.get_legend_handles_labels()      
+  sm = plt.cm.ScalarMappable(cmap="magma")
+  sm.set_array([])
 
-  density_legend = plt.gca().legend(bbox_to_anchor=(1.020, 0.5), loc='center left', borderaxespad=1.0, fontsize = 14.5, handles = legend_handles,  \
-      labels = ['Low', 'High'], title = r"$\bf{Density}$", title_fontsize = 15, shadow = True, \
-          facecolor = 'white', borderpad = 0.7, labelspacing = 0.85, handletextpad = 0.05)    
-                  
-  # setting legend marker size
-  list(map(lambda legendHandle: legendHandle.set_sizes([55.0]), density_legend.legendHandles))
+  cbar = g.figure.colorbar(sm, ticks = [0, 1])
+  
+  cbar.set_ticklabels(["Low", "High"])
+
+  cbar.set_label(label='Density', size=14, weight='bold', rotation = 360, labelpad = -1, y = 0.5)
+  cbar.ax.tick_params(labelsize=13.5)
 
 
   figure_name = "Patients TCGA applying PCA first to 25 components followed by Isomap with 2 dimensions - density zones"
@@ -2544,15 +2559,18 @@ def micePatientsPcaDensity2D(micePatientsPCA):
   # default of axis is both
   ax.tick_params(labelsize = 14.4)
 
+  
+  g.get_legend().remove()
 
-  legend_handles, _= g.get_legend_handles_labels()      
+  sm = plt.cm.ScalarMappable(cmap="magma")
+  sm.set_array([])
 
-  density_legend = plt.gca().legend(bbox_to_anchor=(1.020, 0.5), loc='center left', borderaxespad=1.0, fontsize = 14.5, handles = legend_handles,  \
-      labels = ['Low', 'High'], title = r"$\bf{Density}$", title_fontsize = 15, shadow = True, \
-          facecolor = 'white', borderpad = 0.7, labelspacing = 0.85, handletextpad = 0.05)    
-                  
-  # setting legend marker size
-  list(map(lambda legendHandle: legendHandle.set_sizes([55.0]), density_legend.legendHandles))
+  cbar = g.figure.colorbar(sm, ticks = [0, 1])
+  
+  cbar.set_ticklabels(["Low", "High"])
+
+  cbar.set_label(label='Density', size=14, weight='bold', rotation = 360, labelpad = -1, y = 0.5)
+  cbar.ax.tick_params(labelsize=13.5)
 
 
   figure_name = "Mice and patients TCGA samples applying PCA with 2 principal components - density zones"
@@ -2890,14 +2908,17 @@ def micePatientsTruncatedSvdDensity2D(micePatientsSVD):
   ax.tick_params(labelsize = 14.4)
 
 
-  legend_handles, _= g.get_legend_handles_labels()      
+  g.get_legend().remove()
 
-  density_legend = plt.gca().legend(bbox_to_anchor=(1.020, 0.5), loc='center left', borderaxespad=1.0, fontsize = 14.5, handles = legend_handles,  \
-      labels = ['Low', 'High'], title = r"$\bf{Density}$", title_fontsize = 15, shadow = True, \
-          facecolor = 'white', borderpad = 0.7, labelspacing = 0.85, handletextpad = 0.05)    
-                  
-  # setting legend marker size
-  list(map(lambda legendHandle: legendHandle.set_sizes([55.0]), density_legend.legendHandles))
+  sm = plt.cm.ScalarMappable(cmap="magma")
+  sm.set_array([])
+
+  cbar = g.figure.colorbar(sm, ticks = [0, 1])
+  
+  cbar.set_ticklabels(["Low", "High"])
+
+  cbar.set_label(label='Density', size=14, weight='bold', rotation = 360, labelpad = -1, y = 0.5)
+  cbar.ax.tick_params(labelsize=13.5)
 
 
   figure_name = "Mice and patients TCGA samples applying truncated SVD with 2 principal components - density zones"
@@ -3244,14 +3265,17 @@ def micePatientsPca25TsneDensity2D(micePatientsTSNE):
   ax.tick_params(labelsize = 14)
 
 
-  legend_handles, _= g.get_legend_handles_labels()      
+  g.get_legend().remove()
 
-  density_legend = plt.gca().legend(bbox_to_anchor=(1.020, 0.5), loc='center left', borderaxespad=1.0, fontsize = 14.5, handles = legend_handles,  \
-      labels = ['Low', 'High'], title = r"$\bf{Density}$", title_fontsize = 15, shadow = True, \
-          facecolor = 'white', borderpad = 0.7, labelspacing = 0.85, handletextpad = 0.05)    
-                  
-  # setting legend marker size
-  list(map(lambda legendHandle: legendHandle.set_sizes([55.0]), density_legend.legendHandles))
+  sm = plt.cm.ScalarMappable(cmap="magma")
+  sm.set_array([])
+
+  cbar = g.figure.colorbar(sm, ticks = [0, 1])
+  
+  cbar.set_ticklabels(["Low", "High"])
+
+  cbar.set_label(label='Density', size=14, weight='bold', rotation = 360, labelpad = -1, y = 0.5)
+  cbar.ax.tick_params(labelsize=13.5)
 
 
   figure_name = "Mice and patients TCGA samples applying PCA first to 25 components followed by TSNE with 2 dimensions - density zones"
@@ -3604,14 +3628,17 @@ def micePatientsPca25MdsDensity2D(micePatientsMDS):
   ax.tick_params(labelsize = 14)
 
 
-  legend_handles, _= g.get_legend_handles_labels()      
+  g.get_legend().remove()
 
-  density_legend = plt.gca().legend(bbox_to_anchor=(1.020, 0.5), loc='center left', borderaxespad=1.0, fontsize = 14.5, handles = legend_handles,  \
-      labels = ['Low', 'High'], title = r"$\bf{Density}$", title_fontsize = 15, shadow = True, \
-          facecolor = 'white', borderpad = 0.7, labelspacing = 0.85, handletextpad = 0.05)    
-                  
-  # setting legend marker size
-  list(map(lambda legendHandle: legendHandle.set_sizes([55.0]), density_legend.legendHandles))
+  sm = plt.cm.ScalarMappable(cmap="magma")
+  sm.set_array([])
+
+  cbar = g.figure.colorbar(sm, ticks = [0, 1])
+  
+  cbar.set_ticklabels(["Low", "High"])
+
+  cbar.set_label(label='Density', size=14, weight='bold', rotation = 360, labelpad = -1, y = 0.5)
+  cbar.ax.tick_params(labelsize=13.5)
 
 
   figure_name = "Mice and patients TCGA samples applying PCA first to 25 components followed by MDS with 2 dimensions - density zones"
@@ -3964,14 +3991,17 @@ def micePatientsPca25IsomapDensity2D(micePatientsIsomap):
   ax.tick_params(labelsize = 14)
 
 
-  legend_handles, _= g.get_legend_handles_labels()      
+  g.get_legend().remove()
 
-  density_legend = plt.gca().legend(bbox_to_anchor=(1.020, 0.5), loc='center left', borderaxespad=1.0, fontsize = 14.8, handles = legend_handles,  \
-      labels = ['Low', 'High'], title = r"$\bf{Density}$", title_fontsize = 15.3, shadow = True, \
-          facecolor = 'white', borderpad = 0.7, labelspacing = 0.85, handletextpad = 0.05)    
-                  
-  # setting legend marker size
-  list(map(lambda legendHandle: legendHandle.set_sizes([55.0]), density_legend.legendHandles))
+  sm = plt.cm.ScalarMappable(cmap="magma")
+  sm.set_array([])
+
+  cbar = g.figure.colorbar(sm, ticks = [0, 1])
+  
+  cbar.set_ticklabels(["Low", "High"])
+
+  cbar.set_label(label='Density', size=14, weight='bold', rotation = 360, labelpad = -1, y = 0.5)
+  cbar.ax.tick_params(labelsize=13.5)
 
 
   figure_name = "Mice and patients TCGA samples applying PCA first to 25 components followed by Isomap with 2 dimensions - density zones"
